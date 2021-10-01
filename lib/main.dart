@@ -18,10 +18,11 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     final homeController = Get.put(HomeController());
-    int _selectedIndex = 0;
+
 
     void _onItemTapped(int index) {
       setState(() {

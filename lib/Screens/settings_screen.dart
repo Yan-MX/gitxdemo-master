@@ -28,7 +28,7 @@ class _SettingScreenState extends State<SettingScreen> {
 
     return ListView(
       children:  <Widget>[
-         ListTile(
+        ListTile(
           trailing: Icon(Icons.face),
           subtitle:Text("Edit your profile"),
           title: Text('Profile'),
@@ -41,13 +41,15 @@ class _SettingScreenState extends State<SettingScreen> {
           onChanged: (bool value) {
             setState(() {
               _toggel = value;
+              Get.changeTheme(Get.isDarkMode?ThemeData.light():ThemeData.dark());
             });
           },
         ),
-        const ListTile(
+       ListTile(
           trailing: Icon(Icons.phone),
           subtitle:Text("Call our support"),
           title: Text('Support'),
+          onTap: (){Get.snackbar("Support", "hello");},
         ),
       ],
     );
