@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:navigationdemo/Controller/home_controller.dart';
+import 'Screens/photo_screen.dart';
 import 'Screens/settings_screen.dart';
 import 'Screens/Chat/chat_screen.dart';
 import 'Screens/home_screen.dart';
@@ -21,7 +22,7 @@ class _MyAppState extends State<MyApp> {
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    final homeController = Get.put(HomeController());
+   // final homeController = Get.put(HomeController());
 
 
     void _onItemTapped(int index) {
@@ -31,18 +32,8 @@ class _MyAppState extends State<MyApp> {
     }
 
     List<Widget> _widgetOptions = <Widget>[
-      Obx(() =>
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("${homeController.count}"
-              ),
-              ElevatedButton(onPressed: () {
-                homeController.increment();
-              }, child: Text("Add")),
-            ],
-          ),),
-      // HomeScreen(),
+      HomeScreen(),
+      PhotoScreen(),
       ChatScreen(),
       SettingScreen(),
     ];
@@ -63,6 +54,10 @@ class _MyAppState extends State<MyApp> {
                 label: 'Home',
               ),
               BottomNavigationBarItem(
+                icon: Icon(Icons.photo),
+                label: 'Photo',
+              ),
+              BottomNavigationBarItem(
                 icon: Icon(Icons.business),
                 label: 'Chat',
               ),
@@ -72,7 +67,8 @@ class _MyAppState extends State<MyApp> {
               ),
             ],
             currentIndex: _selectedIndex,
-            selectedItemColor: Colors.teal,
+            selectedItemColor: Theme.of(context).primaryColor,
+            unselectedItemColor:Theme.of(context).hintColor ,
             onTap: _onItemTapped,
           ),
         ),
