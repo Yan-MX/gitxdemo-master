@@ -1,8 +1,11 @@
 /// Flutter code sample for BottomNavigationBar
 
 import 'package:flutter/material.dart';
-import 'package:navigationdemo/Controller/home_controller.dart';
+import 'package:navigationdemo/Screens/home_screen2.dart';
+//import 'package:navigationdemo/Controller/home_controller.dart';
+import 'package:navigationdemo/Screens/scroll_small_horizontal.dart';
 import 'Screens/photo_screen.dart';
+
 import 'Screens/settings_screen.dart';
 import 'Screens/Chat/chat_screen.dart';
 import 'Screens/home_screen.dart';
@@ -32,8 +35,8 @@ class _MyAppState extends State<MyApp> {
     }
 
     List<Widget> _widgetOptions = <Widget>[
-      HomeScreen(),
-      PhotoScreen(),
+      HomePage(),
+     PhotoScreen(),
       ChatScreen(),
       SettingScreen(),
     ];
